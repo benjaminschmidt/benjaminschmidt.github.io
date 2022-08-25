@@ -1,0 +1,11 @@
+<ul>
+    {% for presentation in posters_presentations %}
+        <li>
+            {{ presentation.date|date:'m/Y' }}:
+            {{ presentation.occasion }}.
+            {{ presentation.location }}.
+            <a href={{ presentation.poster.pdf.url }}>
+                    {{ presentation.poster.title }}</a>.
+        </li>
+    {% endfor %}
+</ul>

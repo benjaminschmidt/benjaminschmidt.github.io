@@ -1,0 +1,9 @@
+<ul>
+    {% for class in classes %}
+        <li>
+            {{ class.semester }}:
+            {{ class.course }}.
+            {{ class.institution }}.
+        </li>
+    {% endfor %}
+</ul>

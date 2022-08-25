@@ -1,0 +1,8 @@
+<ul>
+    {% for job in jobs %}
+        <li>
+            {{ job.start_date|date:'m/Y' }} - {{ job.end_date|date:'m/Y' }}:
+            <b>{{ job.position }}</b> at {{job.employer}}
+        </li>
+    {% endfor %}
+</ul>

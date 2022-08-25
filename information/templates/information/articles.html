@@ -1,0 +1,13 @@
+<ol>
+    {% for paper in articles %}
+        {% if paper.highlight %}
+            <b> <li>
+                {% include "information/single_article.html" %}
+            </li> </b>
+        {% else %}
+            <li>
+                {% include "information/single_article.html" %}
+            </li>
+        {% endif %}
+    {% endfor %}
+</ol>

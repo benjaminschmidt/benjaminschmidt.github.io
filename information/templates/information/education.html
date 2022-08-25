@@ -1,0 +1,17 @@
+<ul>
+    {% for degree in degrees %}
+        <li>
+            {{ degree.start_date|date:'m/Y' }} - {{ degree.end_date|date:'m/Y' }}:
+            <b>{{ degree.degree_type }}</b> at {{degree.university}} <br>
+            {% if degree.advisor.website %}
+                Advisor: <a href="{{ degree.advisor.website }}">{{ degree.advisor }}</a> <br>
+            {% else %}
+            Advisor: {{ degree.advisor }} <br>
+            {% endif %}
+            {% if degree.thesis %}
+                Thesis: <a href={{ degree.thesis.pdf.url }}>{{ degree.thesis.title }}</a> <br>
+            {% endif %}
+            {{ degree.comment }}
+        </li>
+    {% endfor %}
+</ul>

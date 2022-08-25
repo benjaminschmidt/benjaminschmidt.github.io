@@ -1,0 +1,9 @@
+<ul>
+    {% for talk in talks %}
+        <li>
+            {{ talk.date|date:'m/Y' }}:
+            {{ talk.occasion }}.
+            {{ talk.location }}.
+        </li>
+    {% endfor %}
+</ul>

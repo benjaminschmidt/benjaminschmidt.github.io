@@ -1,0 +1,12 @@
+<ul>
+    {% for skill in skills %}
+        <li>
+            <b>{{ skill.name }}</b>:
+            {{ skill.get_years_of_experience_display }}.
+            Level: {{ skill.get_skill_level_display }}.
+            {% if skill.comment %}
+                {{ skill.comment }}.
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

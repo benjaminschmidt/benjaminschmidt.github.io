@@ -1,0 +1,70 @@
+body {
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 1.6667;
+    color: rgba(33,33,33,1);
+    max-width: 1024px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 45pt;
+    line-height: 1.1;
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    color: rgba(34,110,147,1);
+}
+
+h2 {
+    color: rgba(34,110,147,1);
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 19pt;
+}
+
+a {
+    color: rgba(34,110,147,1);
+}
+
+.portrait {
+    float: right;
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.topnav {
+    overflow: hidden;
+    font-size: 40pt;
+    text-decoration: none;
+}
+
+.topnav a {
+    text-decoration: none;
+}
+
+.topnav_pages {
+    float: left;
+}
+
+.topnav_pages a {
+    padding: 0px 10px 10px 0px;
+}
+
+.topnav_pages span {
+    color: rgba(34,110,147,1);
+    padding: 0px 10px 10px 0px;
+}
+
+.topnav_links a {
+    float: right;
+    padding: 0px 0px 10px 25px;
+}
+
+.icon {
+    height: 30pt;
+}

@@ -1,0 +1,8 @@
+<ul>
+    {% for degree in degrees %}
+        <li>
+            {{ degree.start_date|date:'m/Y' }} - {{ degree.end_date|date:'m/Y' }}:
+            <b>{{ degree.degree_type }}</b> at {{degree.university}}
+        </li>
+    {% endfor %}
+</ul>
