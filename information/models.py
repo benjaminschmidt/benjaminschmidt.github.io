@@ -71,7 +71,7 @@ class Myself(models.Model):
     linkedin = models.URLField()
     name = models.CharField(max_length=200)
     picture = models.ImageField(upload_to = 'images/')
-    professional_description = models.TextField()
+    professional_description = models.TextField(blank=True, default='')
 
     def __str__(self):
         return self.name
