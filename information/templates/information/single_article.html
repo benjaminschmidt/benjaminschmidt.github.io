@@ -2,7 +2,11 @@
 {% if paper.coauthors.all %}
     Joint with
     {% for author in paper.coauthors.all|dictsort:"name" %}
-        <a href="{{ author.website }}">{{ author }}</a>{% if forloop.last %}. {% else %}, {% endif %}
+        {% if author.website %}
+            <a href="{{ author.website }}">{{ author }}</a>{% if forloop.last %}. {% else %}, {% endif %}
+        {% else %}
+            {{ author }}{% if forloop.last %}. {% else %}, {% endif %}
+        {% endif %}
     {% endfor %}
 {% endif %} 
 {% if paper.journal %}
