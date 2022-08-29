@@ -1,7 +1,7 @@
 <ul>
     {% for software in software_projects %}
         <li>
-            <a href={{ software.github }}>{{ software.title }}</a>:
+            <a href={{ software.github }} target="_blank">{{ software.title }}</a>:
             {{ software.comment }}.
         </li>
     {% endfor %}

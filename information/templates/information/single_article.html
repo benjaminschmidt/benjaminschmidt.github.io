@@ -1,9 +1,9 @@
-<a href={{ paper.pdf.url }}>{{ paper.title }}</a>.
+<a href={{ paper.pdf.url }} target="_blank">{{ paper.title }}</a>.
 {% if paper.coauthors.all %}
     Joint with
     {% for author in paper.coauthors.all|dictsort:"name" %}
         {% if author.website %}
-            <a href="{{ author.website }}">{{ author }}</a>{% if forloop.last %}. {% else %}, {% endif %}
+            <a href="{{ author.website }}" target="_blank">{{ author }}</a>{% if forloop.last %}. {% else %}, {% endif %}
         {% else %}
             {{ author }}{% if forloop.last %}. {% else %}, {% endif %}
         {% endif %}
@@ -12,7 +12,7 @@
 {% if paper.journal %}
     <em> {{paper.journal}}. </em>
 {% endif %}
-<a href="https://arxiv.org/abs/{{ paper.arxiv }}">arXiv:{{ paper.arxiv }}</a>.
+<a href="https://arxiv.org/abs/{{ paper.arxiv }}" target="_blank">arXiv:{{ paper.arxiv }}</a>.
 {% if paper.comment %}
     {{ paper.comment }}.
 {% endif %}

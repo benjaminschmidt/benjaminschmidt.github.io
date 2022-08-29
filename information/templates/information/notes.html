@@ -4,7 +4,7 @@ numerous mistakes and inaccuracies. Let me know if you find any mistakes.
 <ul>
     {% for note in notes %}
         <li>
-            <a href={{ note.pdf.url }}>{{ note.title }}</a>
+            <a href={{ note.pdf.url }} target="_blank">{{ note.title }}</a>
             {{ note.comment }}
         </li>
     {% endfor %}

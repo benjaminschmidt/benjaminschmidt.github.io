@@ -4,7 +4,7 @@
             {{ presentation.date|date:'m/Y' }}:
             {{ presentation.occasion }}.
             <i>{{ presentation.location }}.</i>
-            <a href={{ presentation.poster.pdf.url }}>
+            <a href={{ presentation.poster.pdf.url }} target="_blank">
                     {{ presentation.poster.title }}</a>.
         </li>
     {% endfor %}
