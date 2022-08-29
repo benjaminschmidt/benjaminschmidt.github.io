@@ -1,23 +1,46 @@
 # Personal Website (v0.1.0)
 
-The code for the personal website of Benjamin Schmidt. Written with Django.
+The code for the personal website of Benjamin Schmidt using Django.
 
 DO NOT DEPLOY THIS WEBSITE WITHOUT CHANGING THE PASSWORD IN
 personal_site/settings.py
 
-# How to deploy on server
+# How to deploy on [PythonAnywhere](https://www.pythonanywhere.com/)
 
-1. Clone the repository with `git clone https://github.com/benjaminschmidt/personal_site.git`.
+Consider to check out the official
+[instructions](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject) for setting up an existing project on PythonAnywhere.
 
-2. Go to `personal_site/personal_site/settings.py` and change the `SECRET_KEY`.
+1. Clone the repository with
+`git clone https://github.com/benjaminschmidt/benjaminschmidt.github.io.git`.
+
+2. Open `benjaminschmidt.github.io/personal_site/settings.py`.
+    * Change the `SECRET_KEY`.
+    * Add domain name to `ALLOWED_HOSTS`.
+    * Add `STATIC_ROOT = "/home/bschmidt/benjaminschmidt.github.io/static/"`
 
 3. Create a new virtual environment with `python3 -m venv venv`.
 
 4. Activate the virtual environment with `source venv/bin/activate`.
 
-5. Upgrade stuff and install Django with
+5. Upgrade pip and install Django with
     * `python3 -m pip install --upgrade pip`
-    * `python3 -m pip install Django` 
+    * `python3 -m pip install Django`
+    * `python3 -m pip install Pillow`
+
+6. Go to the Django projects folder with `cd benjaminschmidt.github.io.git`.
+
+7. Run `python3 manage.py collectstatic`
+
+8. Run the database migrations with `python3 manage.py migrate`.
+
+9. Create an admin user with `python3 manage.py createsuperuser`.
+
+10. Follow the remaining
+[instructions](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject)
+on PythonAnywhere.
+
+11. Once everything works go back to
+`benjaminschmidt.github.io/personal_site/settings.py` and set `DEBUG = False`.
 
 
 # Credits
