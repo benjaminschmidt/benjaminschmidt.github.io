@@ -47,11 +47,13 @@
     {% include "information/software.html" %}
 {% endif %}
 
-<h2> Skills </h2>
-{% include "information/skills.html" with skills=languages %}
-{% include "information/skills.html" with skills=frameworks %}
-{% include "information/skills.html" with skills=tools %}
-{% include "information/skills.html" with skills=others %}
+{% if languages or frameworks or tools or others %}
+    <h2> Skills </h2>
+    {% include "information/skills.html" with skills=languages %}
+    {% include "information/skills.html" with skills=frameworks %}
+    {% include "information/skills.html" with skills=tools %}
+    {% include "information/skills.html" with skills=others %}
+{% endif %}
 
 {% if degrees %}
     <h2> Education </h2>
