@@ -7,7 +7,7 @@ from .models import Skill, SoftwareProject, Talk, TaughtClass
 def coding(request):
     degrees = Degree.objects.order_by('-end_date')
     frameworks = Skill.objects.filter(type_of_skill=Skill.FRAMEWORK)
-    jobs = Job.objects.order_by('-end_date')
+    jobs = Job.objects.order_by('-start_date')
     languages = Skill.objects.filter(type_of_skill=Skill.LANGUAGE)
     myself = Myself.objects.get(id = 1)
     others = Skill.objects.filter(type_of_skill=Skill.OTHERS)

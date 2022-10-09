@@ -1,7 +1,11 @@
 <ul>
     {% for job in jobs %}
         <li>
-            {{ job.start_date|date:'m/Y' }} - {{ job.end_date|date:'m/Y' }}:
+            {% if job.end_date %}
+                {{ job.start_date|date:'m/Y' }} - {{ job.end_date|date:'m/Y' }}:    
+            {% else %}
+                Since {{ job.start_date|date:'m/Y' }}:
+            {% endif %}
             <b>{{ job.position }}</b> at {{job.employer}}
         </li>
     {% endfor %}

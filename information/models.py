@@ -54,7 +54,7 @@ class Degree(models.Model):
 
 class Job(models.Model):
     employer = models.CharField(max_length=200)
-    end_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
     start_date = models.DateField()
     position = models.CharField(max_length=200)
 
