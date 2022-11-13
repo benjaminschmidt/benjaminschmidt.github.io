@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>{{ myself.name }}</title>
-{% load static %}
-<link rel="stylesheet" href="{% static 'information/style.css' %}">
+    <title>{{ myself.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'information/style.css' %}" />
 </head>
+
 <body>
+    <header>
+        <div class="topnav">
+            <div class="topnav_pages">
+                <a class="active" href="{% url 'coding' %}">Programming</a>
+                <span>/</span>
+                <a href="{% url 'math' %}">Mathematics</a>
+            </div>
+            <div class="topnav_links">
+                <a href="mailto:{{ myself.email }}" target="_blank">
+                    <img class="icon" src="{% static 'information/mail-icon.png' %}" />
+                </a>
+                <a href="{{ myself.git }}" target="_blank">
+                    <img class="icon" src="{% static 'information/github.png' %}" />
+                </a>
+                <a href="{{ myself.linkedin }}" target="_blank">
+                    <img class="icon" src="{% static 'information/linkedin.png' %}" />
+                </a>
+            </div>
+        </div>
+    </header>
 
-<div class="topnav">
-    <div class="topnav_pages">
-        <a class="active" href="{% url 'coding' %}">Programming</a>
-        <span>/</span>
-        <a href="{% url 'math' %}">Mathematics</a>
-    </div>
-    <div class="topnav_links">
-        <a href="mailto:{{ myself.email }}" target="_blank">
-            <img class="icon" src="{% static 'information/mail-icon.png' %}">
-        </a>
-        <a href="{{ myself.git }}" target="_blank">
-            <img class="icon" src="{% static 'information/github.png' %}">
-        </a>
-        <a href="{{ myself.linkedin }}" target="_blank">
-            <img class="icon" src="{% static 'information/linkedin.png' %}">
-        </a>
-    </div>
-</div> 
+    <main>
+        <h2>{{ myself.name }}</h2>
 
-<h2>{{ myself.name }}</h2>
+        <div class="portrait">
+            <img class="portrait" src="{{ myself.picture.url }}" alt="Portrait" />
+        </div>
 
-<div class="portrait">
-    <img class="portrait"
-         src="{{ myself.picture.url }}"
-         alt="Portrait">
-</div> 
+        <p> {{ myself.general_description }} </p>
+        <p> {{ myself.professional_description }} </p>
 
-<p> {{ myself.general_description }} </p>
-<p> {{ myself.professional_description }} </p>
+        {% if jobs %}
+            <h2> Employment </h2>
+            {% include "information/jobs.html" %}
+        {% endif %}
 
-{% if jobs %}
-    <h2> Employment </h2>
-    {% include "information/jobs.html" %}
-{% endif %}
+        {% if software_projects %}
+            <h2> Software </h2>
+            {% include "information/software.html" %}
+        {% endif %}
 
-{% if software_projects %}
-    <h2> Software </h2>
-    {% include "information/software.html" %}
-{% endif %}
+        {% if languages or frameworks or tools or others %}
+            <h2> Skills </h2>
+            {% include "information/skills.html" with skills=languages %}
+            {% include "information/skills.html" with skills=frameworks %}
+            {% include "information/skills.html" with skills=tools %}
+            {% include "information/skills.html" with skills=others %}
+        {% endif %}
 
-{% if languages or frameworks or tools or others %}
-    <h2> Skills </h2>
-    {% include "information/skills.html" with skills=languages %}
-    {% include "information/skills.html" with skills=frameworks %}
-    {% include "information/skills.html" with skills=tools %}
-    {% include "information/skills.html" with skills=others %}
-{% endif %}
-
-{% if degrees %}
-    <h2> Education </h2>
-    {% include "information/education_quick.html" %}
-{% endif %}
+        {% if degrees %}
+            <h2> Education </h2>
+            {% include "information/education_quick.html" %}
+        {% endif %}
+    </main>
 
 </body>
-</html> 
+
+</html>
