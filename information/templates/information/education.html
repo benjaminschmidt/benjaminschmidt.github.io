@@ -2,7 +2,7 @@
     {% for degree in degrees %}
         <li>
             {{ degree.start_date|date:'m/Y' }} - {{ degree.end_date|date:'m/Y' }}:
-            <b>{{ degree.degree_type }}</b> at {{degree.university}} <br>
+            <span class="degreeType">{{ degree.degree_type }}</span> at {{degree.university}} <br>
             {% if degree.advisor.website %}
                 Advisor: <a href="{{ degree.advisor.website }}" target="_blank">{{ degree.advisor }}</a> <br>
             {% else %}

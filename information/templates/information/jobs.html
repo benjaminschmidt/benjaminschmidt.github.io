@@ -6,7 +6,7 @@
             {% else %}
                 Since {{ job.start_date|date:'m/Y' }}:
             {% endif %}
-            <b>{{ job.position }}</b> at {{job.employer}}
+            <span class="jobName">{{ job.position }}</span> at {{job.employer}}
         </li>
     {% endfor %}
 </ul>

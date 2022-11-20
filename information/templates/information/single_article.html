@@ -10,7 +10,7 @@
     {% endfor %}
 {% endif %} 
 {% if paper.journal %}
-    <em> {{paper.journal}}. </em>
+    <span class="journal"> {{paper.journal}}. </span>
 {% endif %}
 <a href="https://arxiv.org/abs/{{ paper.arxiv }}" target="_blank">arXiv:{{ paper.arxiv }}</a>.
 {% if paper.comment %}

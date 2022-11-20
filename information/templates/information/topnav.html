@@ -1,0 +1,19 @@
+{% load static %}
+<div class="topnav">
+    <div class="topnav_pages">
+        <a href="{% url 'coding' %}">Programming</a>
+        <span>/</span>
+        <a href="{% url 'math' %}">Mathematics</a>
+    </div>
+    <div class="topnav_links">
+        <a href="mailto:{{ myself.email }}" target="_blank">
+            <img class="icon" src="{% static 'information/mail-icon.png' %}" />
+        </a>
+        <a href="{{ myself.git }}" target="_blank">
+            <img class="icon" src="{% static 'information/github.png' %}" />
+        </a>
+        <a href="{{ myself.linkedin }}" target="_blank">
+            <img class="icon" src="{% static 'information/linkedin.png' %}" />
+        </a>
+    </div>
+</div>

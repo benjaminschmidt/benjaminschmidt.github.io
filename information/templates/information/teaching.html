@@ -2,7 +2,7 @@
     {% for class in classes %}
         <li>
             {{ class.semester }}:
-            <i>{{ class.course }}.</i>
+            <span class="courseName">{{ class.course }}.</span>
             {{ class.institution }}.
         </li>
     {% endfor %}

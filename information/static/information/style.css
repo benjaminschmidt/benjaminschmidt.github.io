@@ -29,7 +29,7 @@ a {
     color: rgba(34,110,147,1);
 }
 
-.portrait {
+#portrait  {
     float: right;
     width: auto;
     height: 200px;
@@ -67,4 +67,32 @@ a {
 
 .icon {
     height: 30pt;
+}
+
+.degreeType {
+    font-weight: bold;
+}
+
+.jobName {
+    font-weight: bold;
+}
+
+.presentationLocation {
+    font-style: italic;
+}
+
+.courseName {
+    font-style: italic;
+}
+
+.skillName {
+    font-weight: bold;
+}
+
+.journal {
+    font-style: italic;
+}
+
+.strongPaper {
+    font-weight: bold;
 }

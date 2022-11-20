@@ -3,7 +3,7 @@
         <li>
             {{ talk.date|date:'m/Y' }}:
             {{ talk.occasion }}.
-            <i>{{ talk.location }}.</i>
+            <span class="presentationLocation">{{ talk.location }}.</span>
         </li>
     {% endfor %}
 </ul>

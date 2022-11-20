@@ -9,35 +9,16 @@
 
 <body>
     <header>
-        <div class="topnav">
-            <div class="topnav_pages">
-                <a class="active" href="{% url 'coding' %}">Programming</a>
-                <span>/</span>
-                <a href="{% url 'math' %}">Mathematics</a>
-            </div>
-            <div class="topnav_links">
-                <a href="mailto:{{ myself.email }}" target="_blank">
-                    <img class="icon" src="{% static 'information/mail-icon.png' %}" />
-                </a>
-                <a href="{{ myself.git }}" target="_blank">
-                    <img class="icon" src="{% static 'information/github.png' %}" />
-                </a>
-                <a href="{{ myself.linkedin }}" target="_blank">
-                    <img class="icon" src="{% static 'information/linkedin.png' %}" />
-                </a>
-            </div>
-        </div>
+        {% include "information/topnav.html" %}
     </header>
 
     <main>
-        <h2>{{ myself.name }}</h2>
-
-        <div class="portrait">
-            <img class="portrait" src="{{ myself.picture.url }}" alt="Portrait" />
+        <div>
+            <h2>{{ myself.name }}</h2>
+            <img id="portrait" src="{{ myself.picture.url }}" alt="Portrait" />
+            <p> {{ myself.general_description }} </p>
+            <p> {{ myself.academic_description }} </p>
         </div>
-
-        <p> {{ myself.general_description }} </p>
-        <p> {{ myself.academic_description }} </p>
 
         {% if articles %}
             <h2> Articles </h2>
