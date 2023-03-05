@@ -1,4 +1,4 @@
-# Personal Website (v1.0.2)
+# Personal Website
 
 The code for the personal website of Benjamin Schmidt using Django.
 
