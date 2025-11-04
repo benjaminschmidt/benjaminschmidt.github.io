@@ -5,7 +5,7 @@ The code for the personal website of Benjamin Schmidt using Django.
 DO NOT DEPLOY THIS WEBSITE WITHOUT CHANGING THE PASSWORD IN
 personal_site/settings.py
 
-# How to deploy on [PythonAnywhere](https://www.pythonanywhere.com/)
+# How to deploy on [PythonAnywhere](https://www.pythonanywhere.com/) (outdated only for version 1.0.0)
 
 Consider to check out the official
 [instructions](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject) for setting up an existing project on PythonAnywhere.
