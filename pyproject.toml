@@ -1,6 +1,6 @@
 [project]
 name = "benjaminschmidt-github-io"
-version = "1.0.0"
+version = "0.0.0"
 description = "The code for the personal website of Benjamin Schmidt using Django"
 readme = "README.md"
 requires-python = "==3.9.24"

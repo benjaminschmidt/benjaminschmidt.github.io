@@ -1,0 +1,19 @@
+---
+name: Release pipeline
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Obtain next version
+        uses: ${{ forge.server_url }}/phaib/simple-semantic-release@0.2.3
+        with:
+          create-release: true
