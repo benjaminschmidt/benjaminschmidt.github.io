@@ -5,6 +5,6 @@ description = "The code for the personal website of Benjamin Schmidt using Djang
 readme = "README.md"
 requires-python = "==3.10.19"
 dependencies = [
-    "django==4.2.25",
+    "django==5.2.7",
     "pillow==12.0.0",
 ]
