@@ -3,7 +3,7 @@ name = "benjaminschmidt-github-io"
 version = "0.0.0"
 description = "The code for the personal website of Benjamin Schmidt using Django"
 readme = "README.md"
-requires-python = "==3.9.24"
+requires-python = "==3.10.19"
 dependencies = [
     "django==4.1.7",
     "pillow==9.4.0",
