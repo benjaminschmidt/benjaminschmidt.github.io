@@ -2,10 +2,23 @@
 
 The code for the personal website of Benjamin Schmidt using Django.
 
-DO NOT DEPLOY THIS WEBSITE WITHOUT CHANGING THE PASSWORD IN
-personal_site/settings.py
+# Local dev setup
+
+1. Make a copy of [.env.template](.env.template), call it [.env](.env). 
+2. Start postgres and run migration with:
+   ```shell
+   podman kube play postgres.yaml
+   uv run python manage.py migrate
+   ```
+3. Start the dev server with:
+   ```shell
+   uv run python manage.py runserver
+   ```
 
 # How to deploy on [PythonAnywhere](https://www.pythonanywhere.com/) (outdated only for version 1.0.0)
+
+DO NOT DEPLOY THIS WEBSITE WITHOUT CHANGING THE PASSWORD IN
+personal_site/settings.py
 
 Consider to check out the official
 [instructions](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject) for setting up an existing project on PythonAnywhere.
