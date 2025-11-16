@@ -1,0 +1,35 @@
+---
+name: Build pipeline
+on:
+  release:
+    types: [ edited, published ]
+  workflow_dispatch:
+
+jobs:
+  build-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get version
+        id: version
+        run: |
+          git describe --abbrev=0 --tags 2>&1
+          echo "version=$(git describe --abbrev=0 --tags 2>&1)" >> $GITHUB_OUTPUT
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          endpoint: tcp://${{ vars.SERVER_DOMAIN }}:2375
+      - name: Login to gitea container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ vars.SERVER_DOMAIN }}
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.PACKAGE_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:latest, ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:${{ steps.version.outputs.version }}
