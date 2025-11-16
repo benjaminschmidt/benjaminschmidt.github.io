@@ -8,4 +8,10 @@ __pycache__
 /.venv/
 /.idea/
 /static/
-/.env
+
+/.forgejo/
+/docs/
+/.env.template
+/.gitignore
+/postgres.yaml
+/renovate.json
