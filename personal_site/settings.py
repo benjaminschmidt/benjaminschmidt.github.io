@@ -34,6 +34,11 @@ if getenv("ALLOWED_HOSTS"):
 else:
     ALLOWED_HOSTS = []
 
+if getenv("CSRF_TRUSTED_ORIGINS"):
+    CSRF_TRUSTED_ORIGINS = loads(getenv("CSRF_TRUSTED_ORIGINS"))
+else:
+    CSRF_TRUSTED_ORIGINS = []
+
 # Application definition
 
 INSTALLED_APPS = [
