@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
     - name: postgres-container
-      image: docker.io/library/postgres:18.0
+      image: docker.io/library/postgres:18.1
       ports:
         - containerPort: 5432
           hostPort: 5432
