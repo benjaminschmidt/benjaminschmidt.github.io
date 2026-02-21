@@ -8,6 +8,6 @@ dependencies = [
     "django==6.0.2",
     "gunicorn==25.1.0",
     "pillow==12.1.1",
-    "psycopg[binary]==3.3.2",
+    "psycopg[binary]==3.3.3",
     "python-dotenv==1.2.1",
 ]
