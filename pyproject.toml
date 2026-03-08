@@ -1,5 +1,5 @@
 [project]
-name = "benjaminschmidt-github-io"
+name = "personal-website"
 version = "0.0.0"
 description = "The code for the personal website of Benjamin Schmidt using Django"
 readme = "README.md"

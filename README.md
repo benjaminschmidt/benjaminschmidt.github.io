@@ -17,8 +17,8 @@ The code for the personal website of Benjamin Schmidt using Django.
    ```
 4. Optionally, you can build and run this as a container locally (static files won't work):
    ```shell
-   podman build . -t benjaminschmidt.github.io/benjaminschmidt.github.io
-   podman run -p 8000:8000 --env-file=.env --name benjaminschmidt.github.io --network=slirp4netns benjaminschmidt.github.io/benjaminschmidt.github.io:latest
+   podman build . -t personal-website/personal-website
+   podman run -p 8000:8000 --env-file=.env --name personal-website --network=slirp4netns personal-website/personal-website:latest
    ```
 
 # Credits
