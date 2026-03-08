@@ -29,7 +29,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.PACKAGE_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           push: true
           tags: ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:latest, ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:${{ steps.version.outputs.version }}
