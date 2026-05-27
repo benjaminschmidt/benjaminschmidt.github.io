@@ -13,4 +13,4 @@ dependencies = [
 ]
 
 [tool.uv]
-exclude-newer = "3 days"
+exclude-newer = "13 days"
