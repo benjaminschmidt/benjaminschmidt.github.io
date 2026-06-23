@@ -1,0 +1,69 @@
+[tools]
+uv = "latest"
+
+[settings]
+install_before = "13d"
+lockfile = true
+python.uv_venv_auto = "source"
+
+[tasks.db-up]
+description = "Start local Postgres"
+run = '''
+set -e
+
+if podman pod exists postgres-personal-website; then
+  podman pod start postgres-personal-website
+else
+  podman kube play postgres.yaml
+fi
+'''
+
+[tasks.db-down]
+description = "Stop and remove local Postgres"
+run = '''
+set -e
+
+podman kube down postgres.yaml
+'''
+
+[tasks.db-delete]
+description = "Stop and remove local Postgres including volume"
+run = '''
+set -e
+
+podman kube down postgres.yaml
+podman volume rm postgres-personal-website-data-volume-claim || true
+'''
+
+[tasks.dev]
+depends = ["db-up"]
+description = "Start local Postgres and Django dev server"
+run = '''
+set -e
+
+cleanup() {
+  echo
+  echo "Stopping local Postgres..."
+  podman kube down postgres.yaml
+}
+
+trap cleanup EXIT INT TERM
+
+echo "Waiting for Postgres..."
+until podman exec postgres-personal-website-container pg_isready -U postgres >/dev/null 2>&1; do
+  sleep 1
+done
+
+echo "Postgres is ready."
+uv run python manage.py runserver
+'''
+
+[tasks.migrate]
+description = "Run Django migrations"
+depends = ["db-up"]
+depends_post = ["db-down"]
+run = '''
+set -e
+
+uv run python manage.py migrate
+'''
