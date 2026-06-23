@@ -6,6 +6,23 @@ install_before = "13d"
 lockfile = true
 python.uv_venv_auto = "source"
 
+[tasks.db-delete]
+description = "Stop and remove local Postgres including volume"
+run = '''
+set -e
+
+podman kube down postgres.yaml
+podman volume rm postgres-personal-website-data-volume-claim || true
+'''
+
+[tasks.db-down]
+description = "Stop and remove local Postgres"
+run = '''
+set -e
+
+podman kube down postgres.yaml
+'''
+
 [tasks.db-up]
 description = "Start local Postgres"
 run = '''
@@ -18,21 +35,21 @@ else
 fi
 '''
 
-[tasks.db-down]
-description = "Stop and remove local Postgres"
+[tasks.db-prepare]
+description = "Run Django migrations"
+depends = ["db-up"]
+depends_post = ["db-down"]
 run = '''
 set -e
 
-podman kube down postgres.yaml
-'''
+echo "Waiting for Postgres..."
+until podman exec postgres-personal-website-container pg_isready -U postgres >/dev/null 2>&1; do
+  sleep 1
+done
 
-[tasks.db-delete]
-description = "Stop and remove local Postgres including volume"
-run = '''
-set -e
-
-podman kube down postgres.yaml
-podman volume rm postgres-personal-website-data-volume-claim || true
+uv run manage.py migrate
+python manage.py deleteallusers
+python manage.py createsuperuser --no-input
 '''
 
 [tasks.dev]
@@ -55,15 +72,5 @@ until podman exec postgres-personal-website-container pg_isready -U postgres >/d
 done
 
 echo "Postgres is ready."
-uv run python manage.py runserver
-'''
-
-[tasks.migrate]
-description = "Run Django migrations"
-depends = ["db-up"]
-depends_post = ["db-down"]
-run = '''
-set -e
-
-uv run python manage.py migrate
+uv run manage.py runserver
 '''

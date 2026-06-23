@@ -4,18 +4,17 @@ The code for the personal website of Benjamin Schmidt using Django.
 
 # Local dev setup
 
-1. Make a copy of [.env.template](.env.template), call it [.env](.env). 
-2. Start postgres, run migration, and create a superuser with:
+1. Make a copy of [mise.local.toml.template](mise.local.toml.template), call it [mise.local.toml](mise.local.toml.template). 
+2. Prepare the database with:
    ```shell
-   podman kube play postgres.yaml --network=slirp4netns
-   uv run python manage.py migrate
-   uv run python manage.py createsuperuser
+   mise run db-setup
    ```
-3. Start the dev server with:
+3. Start the dev server and postgres with:
    ```shell
-   uv run python manage.py runserver
+   mise run dev
    ```
-4. Optionally, you can build and run this as a container locally (static files won't work):
+4. Optionally, you can build and run this as a container locally
+   (static files won't work, and there might be networking issues with postgres):
    ```shell
    podman build . -t personal-website/personal-website
    podman run -p 8000:8000 --env-file=.env --name personal-website --network=slirp4netns personal-website/personal-website:latest

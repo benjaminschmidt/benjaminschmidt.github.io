@@ -8,4 +8,4 @@ __pycache__
 /.venv/
 /.idea/
 /static/
-/.env
+/mise.local.toml
