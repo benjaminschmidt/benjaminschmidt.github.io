@@ -1,99 +1,134 @@
+:root {
+    --primary-color: rgba(34,110,147,1);
+    --text-color: rgba(33,33,33,1);
+    --bg-mobile: #f8f9fa;
+    --border-mobile: #e9ecef;
+}
+
 body {
     font-family: Lato, sans-serif;
     font-weight: 400;
-    font-size: 11pt;
+    font-size: 1rem;
     line-height: 1.6667;
-    color: rgba(33,33,33,1);
+    color: var(--text-color);
     max-width: 1024px;
     margin: auto;
+    padding: 0 15px;
+}
+
+h1, h2, a, .topnav_pages span {
+    color: var(--primary-color);
 }
 
 h1 {
     text-align: center;
-    font-size: 45pt;
+    font-size: 3rem;
     line-height: 1.1;
-    font-family: Lato, sans-serif;
     font-weight: 300;
-    color: rgba(34,110,147,1);
 }
 
 h2 {
-    color: rgba(34,110,147,1);
-    font-family: Lato, sans-serif;
     font-weight: 400;
     line-height: 1.4;
-    font-size: 19pt;
+    font-size: 1.5rem;
 }
 
-a {
-    color: rgba(34,110,147,1);
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-#portrait  {
+#portrait {
     float: right;
-    width: auto;
-    height: 200px;
-    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
     margin-left: 20px;
-    border-radius: 500px;
+    border-radius: 50%;
+    border: 3px solid rgba(34,110,147,0.2);
 }
 
 .topnav {
-    overflow: hidden;
-    font-size: 40pt;
-    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 3rem;
+    margin: 20px 0;
 }
 
 .topnav a {
     text-decoration: none;
 }
 
-.topnav_pages {
-    float: left;
+.topnav_pages, .topnav_links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .topnav_pages a {
-    padding: 0px 10px 10px 0px;
+    padding: 5px 0;
+    white-space: nowrap;
 }
 
 .topnav_pages span {
-    color: rgba(34,110,147,1);
-    padding: 0px 10px 10px 0px;
+    padding: 0 10px;
 }
 
 .topnav_links a {
-    float: right;
-    padding: 0px 0px 10px 25px;
+    padding-left: 20px;
 }
 
 .icon {
-    height: 30pt;
+    height: 2rem;
+    display: block;
 }
 
-.degreeType {
-    font-weight: bold;
+@media (max-width: 800px) {
+    body { font-size: 0.95rem; }
+    h1 { font-size: 2.2rem; }
+    h2 {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    #portrait {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .topnav {
+        font-size: 1.1rem;
+        flex-direction: column;
+        gap: 8px;
+        background-color: var(--bg-mobile);
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid var(--border-mobile);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .topnav_pages, .topnav_links {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .topnav_links {
+        border-top: 1px solid #dee2e6;
+        padding-top: 8px;
+        margin-top: 5px;
+    }
+
+    .topnav_links a {
+        padding: 0 10px;
+    }
+
+    .icon { height: 1.5rem; }
 }
 
-.jobName {
-    font-weight: bold;
-}
-
-.presentationLocation {
-    font-style: italic;
-}
-
-.courseName {
-    font-style: italic;
-}
-
-.skillName {
-    font-weight: bold;
-}
-
-.journal {
-    font-style: italic;
-}
-
-.strongPaper {
-    font-weight: bold;
-}
+.degreeType, .jobName, .skillName, .strongPaper { font-weight: bold; }
+.presentationLocation, .courseName, .journal { font-style: italic; }

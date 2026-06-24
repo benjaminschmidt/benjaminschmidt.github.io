@@ -1,9 +1,9 @@
 <ol>
     {% for paper in articles %}
         {% if paper.highlight %}
-            <div class="strongPaper"> <li>
+            <li class="strongPaper">
                 {% include "information/single_article.html" %}
-            </li> </div>
+            </li>
         {% else %}
             <li>
                 {% include "information/single_article.html" %}
