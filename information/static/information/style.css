@@ -1,8 +1,25 @@
 :root {
     --primary-color: rgba(34,110,147,1);
     --text-color: rgba(33,33,33,1);
+    --bg-color: #ffffff;
     --bg-mobile: #f8f9fa;
     --border-mobile: #e9ecef;
+    --border-color: rgba(34,110,147,0.2);
+    --hr-color: #dee2e6;
+    --icon-filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: rgba(100, 180, 220, 1);
+        --text-color: rgba(230, 230, 230, 1);
+        --bg-color: #121212;
+        --bg-mobile: #1e1e1e;
+        --border-mobile: #333333;
+        --border-color: rgba(100, 180, 220, 0.3);
+        --hr-color: #444444;
+        --icon-filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    }
 }
 
 body {
@@ -11,6 +28,7 @@ body {
     font-size: 1rem;
     line-height: 1.6667;
     color: var(--text-color);
+    background-color: var(--bg-color);
     max-width: 1024px;
     margin: auto;
     padding: 0 15px;
@@ -45,7 +63,7 @@ img {
     object-fit: cover;
     margin-left: 20px;
     border-radius: 50%;
-    border: 3px solid rgba(34,110,147,0.2);
+    border: 3px solid var(--border-color);
 }
 
 .topnav {
@@ -83,6 +101,7 @@ img {
 .icon {
     height: 2rem;
     display: block;
+    filter: var(--icon-filter);
 }
 
 @media (max-width: 800px) {
@@ -109,7 +128,7 @@ img {
         padding: 15px;
         border-radius: 10px;
         border: 1px solid var(--border-mobile);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     .topnav_pages, .topnav_links {
@@ -118,7 +137,7 @@ img {
     }
 
     .topnav_links {
-        border-top: 1px solid #dee2e6;
+        border-top: 1px solid var(--hr-color);
         padding-top: 8px;
         margin-top: 5px;
     }
