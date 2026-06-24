@@ -4,6 +4,11 @@
   "minimumReleaseAgeBehaviour": "timestamp-required",
   "prHourlyLimit": 10,
   "prConcurrentLimit": 10,
+  "kubernetes": {
+    "managerFilePatterns": [
+      "postgres.yaml"
+    ]
+  },
   "packageRules": [
     {
       "matchRegistryUrls": [
