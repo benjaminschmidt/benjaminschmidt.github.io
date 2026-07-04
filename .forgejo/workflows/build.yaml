@@ -24,13 +24,13 @@ jobs:
           endpoint: tcp://dind-pod:2375
           driver-opts: network=host
       - name: Login to gitea container registry
-        uses: docker/login-action@v4
+        uses: docker/login-action@v4.2.0
         with:
           registry: ${{ vars.SERVER_DOMAIN }}
           username: ${{ github.repository_owner }}
           password: ${{ secrets.PACKAGE_TOKEN }}
       - name: Build and push
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@v7.2.0
         with:
           push: true
           tags: ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:latest, ${{ vars.SERVER_DOMAIN }}/${{ github.repository }}:${{ steps.version.outputs.version }}
